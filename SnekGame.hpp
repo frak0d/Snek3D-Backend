@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <stdexcept>
 #include <algorithm>
 
 #include "Rand.hpp"
@@ -62,7 +63,8 @@ public :
 		}
 		
 		last_move = move;
-		snek.push_front(snek[0] + move);
+		//snek.push_front(snek[0] + move);
+		
 		snek.pop_back();
 		
 		// If Food is eaten
@@ -96,6 +98,8 @@ public :
 		else
 			wrld = {x_sz, y_sz, z_sz};
 		
-		food = rand_coord({1,1,1}, wrld);
+		food =  rand_coord({1,1,1}, wrld); // initial food
+		snek.reserve(32);
+		snek.push_back(rand_coord({1,1,1}, wrld)); // initial snek
 	}
 };

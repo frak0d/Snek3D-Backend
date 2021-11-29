@@ -8,8 +8,7 @@ struct Color
 	uint8_t r,g,b,a;
 	
 	// Construct from RGBA Values
-	Color(uint8_t R=0, uint8_t G=0,
-				uint8_t B=0, uint8_t A=255)
+	Color(uint8_t R=0, uint8_t G=0, uint8_t B=0, uint8_t A=255)
 	{
 		r = R;
 		g = G;
