@@ -10,7 +10,7 @@ This repo contains the backend for Snek3D game, originally made to be played on 
 int main()
 {
 	SnekGame3D<uint8_t> game(12,10,16); // for a 12x10x16 cuboid world,
-					 	   // uint8_t is enough to hold the coordinates
+					    // uint8_t is enough to hold the coordinates
 	
 	while (true)
 	{
