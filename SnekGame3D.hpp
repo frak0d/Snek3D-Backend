@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <deque>
 #include <stdexcept>
 #include <algorithm>
 
@@ -18,7 +18,7 @@ private:
 public :
 	uint16_t score = 0;
 	Point3D<mint> food; // location of food
-	std::vector<Point3D<mint>> snek; //pieces of snek
+	std::deque<Point3D<mint>> snek; //pieces of snek
 	
 	bool nextFrame(char movement='0')
 	{
@@ -63,8 +63,7 @@ public :
 		}
 		
 		last_move = move;
-		//snek.push_front(snek[0] + move);
-		
+		snek.push_front(snek[0] + move);
 		snek.pop_back();
 		
 		// If Food is eaten
