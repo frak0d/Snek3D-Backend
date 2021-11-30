@@ -3,7 +3,7 @@ This repo contains the backend for Snek3D game, originally made to be played on 
 
 ## Usage (pseudocode) :-
 ```cpp
-#include "SnekGame.hpp"
+#include "Snek3D.hpp"
 
 int main()
 {
@@ -11,8 +11,18 @@ int main()
 	
 	while (true)
 	{
+		/*
+		 * Movement chars :-
+		 * x : -x axis
+		 * y : -y axis
+		 * z : -z axis
+		 * X : +x axis
+		 * Y : +y axis
+		 * Z : +z axis
+		 */
 		char key = getControllerKeyPress();
-		if (game.nextFrame(key))
+		
+		if (game.nextFrame(key)) // nextFrame() returns false on game over
 		{
 			// display points in game.snek deque as white
 			// and game.food point as red color (like 🍎)
