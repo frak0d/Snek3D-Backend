@@ -24,10 +24,7 @@ public :
 	{
 		using p3d = Point3D<mint>;
 		
-		///// SNEK MOVE /////
-		
 		Point3D<int8_t> move;
-		
 		/*
 		 * Movements :-
 		 * x : -x axis
@@ -70,6 +67,7 @@ public :
 		if (snek[0] == food)
 		{
 			score += 1;
+			food = rand_coord({1,1,1}, wrld, {255, 50, 50});
 		}
 		
 		// Check Self Collision
@@ -84,9 +82,6 @@ public :
 			return false; // Game Over
 		}
 		
-		///// FOOD MOVE /////
-		
-		
 		return true; // game not over
 	}
 	
@@ -97,8 +92,8 @@ public :
 		else
 			wrld = {x_sz, y_sz, z_sz};
 		
-		food =  rand_coord({1,1,1}, wrld); // initial food
-		snek.reserve(32);
-		snek.push_back(rand_coord({1,1,1}, wrld)); // initial snek
+		food = rand_coord({1,1,1}, wrld, {255, 50, 50}); // initial food (red)
+		snek.reserve(50); // should be enough unless you are a pro snake gamer
+		snek.push_back(rand_coord({1,1,1}, wrld, {255,255,255})); // initial snek (white)
 	}
 };
