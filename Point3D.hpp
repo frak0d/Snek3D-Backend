@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 #include "Color.hpp"
 
@@ -44,7 +45,7 @@ template <typename T=int> struct Point3D
 	
 	bool operator < (const Point3D& rhs)
 	{
-		return (x < rhs.x) && (y < rhs.y) && (z < rhs.z);
+		return (x < rhs.x) || (y < rhs.y) || (z < rhs.z);
 	}
 	
 	bool operator > (const Point3D& rhs)
@@ -52,26 +53,34 @@ template <typename T=int> struct Point3D
 		return (x > rhs.x) || (y > rhs.y) || (z > rhs.z);
 	}
 	
-	// Arithmatic Operators //
-	
-	Point3D operator + (const Point3D& rhs)
+	bool operator << (const Point3D& rhs)
 	{
-	std::cout << typeid(rhs).name() << std::endl;
-		return {x + rhs.x, y + rhs.y, z + rhs.z};
+		return (x < rhs.x) && (y < rhs.y) && (z < rhs.z);
 	}
 	
-	Point3D operator - (const Point3D& rhs)
+	bool operator >> (const Point3D& rhs)
+	{
+		return (x > rhs.x) && (y > rhs.y) && (z > rhs.z);
+	}
+	// Arithmatic Operators //
+	
+	Point3D<T> operator + (const Point3D<auto>& rhs)
+	{
+		return {x + rhs.x, y + rhs.y, z + rhs.z};
+	}
+	/*
+	Point3D operator - (const Point3D<auto>& rhs)
 	{
 		return {x - rhs.x, y - rhs.y, z - rhs.z};
 	}
 	
-	Point3D operator * (const Point3D& rhs)
+	Point3D operator * (const Point3D<auto>& rhs)
 	{
 		return {x * rhs.x, y * rhs.y, z * rhs.z};
 	}
 	
-	Point3D operator / (const Point3D& rhs)
+	Point3D operator / (const Point3D<auto>& rhs)
 	{
 		return {x / rhs.x, y / rhs.y, z / rhs.z};
-	}
+	}*/
 };

@@ -93,7 +93,6 @@ public :
 			wrld = {x_sz, y_sz, z_sz};
 		
 		food = rand_coord({1,1,1}, wrld, {255, 50, 50}); // initial food (red)
-		snek.reserve(50); // should be enough unless you are a pro snake gamer
 		snek.push_back(rand_coord({1,1,1}, wrld, {255,255,255})); // initial snek (white)
 	}
 };
