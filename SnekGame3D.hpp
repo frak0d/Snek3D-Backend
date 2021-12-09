@@ -12,12 +12,12 @@ template <typename mint=uint16_t>
 class SnekGame3D
 {
 private:
-	Point3D<mint> wrld; // size of the world
 	Point3D<int8_t> last_move = {0,0,0};
 	
 public :
 	uint16_t score = 0;
 	Point3D<mint> food; // location of food
+	Point3D<mint> wrld; // size of the world
 	std::deque<Point3D<mint>> snek; //pieces of snek
 	
 	bool nextFrame(char movement='0')
