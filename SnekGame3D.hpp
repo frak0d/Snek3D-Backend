@@ -9,7 +9,8 @@
 #include "Color.hpp"
 #include "Point3D.hpp"
 
-template <std::integral mint=uint16_t> class SnekGame3D
+template <std::integral mint=uint16_t>
+class SnekGame3D
 {
 private:
 	Point3D<int8_t> last_move = {0,0,0};
