@@ -1,9 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <type_traits>
+
 #include "Color.hpp"
 
-template <typename T=int> struct Point3D
+template <typename T=int> requires std::is_arithmetic_v<T>
+struct Point3D
 {
 	T x,y,z;
 	Color color;

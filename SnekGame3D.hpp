@@ -1,6 +1,7 @@
 #pragma once
 
 #include <deque>
+#include <concepts>
 #include <stdexcept>
 #include <algorithm>
 
@@ -8,8 +9,7 @@
 #include "Color.hpp"
 #include "Point3D.hpp"
 
-template <typename mint=uint16_t>
-class SnekGame3D
+template <std::integral mint=uint16_t> class SnekGame3D
 {
 private:
 	Point3D<int8_t> last_move = {0,0,0};
