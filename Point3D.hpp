@@ -38,6 +38,9 @@ struct Point3D
 		z = pnt.z;
 		color = pnt.color;
 	}
+
+	// Default Assignment Operator
+	Point3D& operator= (const Point3D&) = default;
 	
 	// Comparison Operators //
 	
@@ -65,6 +68,7 @@ struct Point3D
 	{
 		return (x > rhs.x) && (y > rhs.y) && (z > rhs.z);
 	}
+	
 	// Arithmatic Operators //
 	
 	Point3D<T> operator + (const Point3D<auto>& rhs)

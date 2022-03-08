@@ -34,4 +34,7 @@ struct Color
 		b = col.b;
 		a = col.a;
 	}
+
+	// Default Assignment Operator
+	Color& operator= (const Color&) = default;
 };
