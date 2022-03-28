@@ -72,7 +72,7 @@ public :
 		}
 		
 		// Check Self Collision
-		else if (std::find(snek.begin()+1, snek.end(), snek[0]) !=  snek.end())
+		else if (std::find(snek.begin()+1, snek.end(), snek[0]) != snek.end())
 		{
 			return false; // Game Over
 		}
@@ -89,7 +89,7 @@ public :
 	SnekGame3D(mint x_sz=16, mint y_sz=16, mint z_sz=16)
 	{
 		if (x_sz < 4 || y_sz < 4 || z_sz < 4)
-			std::runtime_error("World Size too Small, Need Atleast 4x4x4 World !");
+			throw std::runtime_error("World Size too Small, Need Atleast 4x4x4 World !");
 		else
 			wrld = {x_sz, y_sz, z_sz};
 		

@@ -5,7 +5,8 @@
 
 #include "Color.hpp"
 
-template <typename T=int> requires std::is_arithmetic_v<T>
+template <typename T=int>
+requires std::is_arithmetic_v<T>
 struct Point3D
 {
 	T x,y,z;
@@ -16,28 +17,12 @@ struct Point3D
 		color = col;
 	}
 	
-	Color getColor()
-	{
-		return color;
-	}
-	
 	// Construct from XYZ & Color
-	Point3D(T X=0, T Y=0, T Z=0, const Color& col={})
-	{
-		x = X;
-		y = Y;
-		z = Z;
-		color = col;
-	}
+	Point3D(T X=0, T Y=0, T Z=0, const Color& COLOR={})
+			: x(X), y(Y), z(Z), color(COLOR) {}
 	
-	// Construct from a Point3D Object
-	Point3D(const Point3D& pnt)
-	{
-		x = pnt.x;
-		y = pnt.y;
-		z = pnt.z;
-		color = pnt.color;
-	}
+	// Default Copy Constructor
+	Point3D(const Point3D& pnt) = default;
 
 	// Default Assignment Operator
 	Point3D& operator= (const Point3D&) = default;
@@ -70,8 +55,9 @@ struct Point3D
 	}
 	
 	// Arithmatic Operators //
-	
-	Point3D<T> operator + (const Point3D<auto>& rhs)
+
+	template <typename T2>
+	Point3D<T> operator + (const Point3D<T2>& rhs)
 	{
 		return {x + rhs.x, y + rhs.y, z + rhs.z};
 	}
