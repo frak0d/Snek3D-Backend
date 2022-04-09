@@ -29,27 +29,27 @@ struct Point3D
 	
 	// Comparison Operators //
 	
-	bool operator == (const Point3D& rhs)
+	bool operator == (const Point3D& rhs) const
 	{
 		return (x == rhs.x) && (y == rhs.y) && (z == rhs.z);
 	}
 	
-	bool operator < (const Point3D& rhs)
+	bool operator < (const Point3D& rhs) const
 	{
 		return (x < rhs.x) || (y < rhs.y) || (z < rhs.z);
 	}
 	
-	bool operator > (const Point3D& rhs)
+	bool operator > (const Point3D& rhs) const
 	{
 		return (x > rhs.x) || (y > rhs.y) || (z > rhs.z);
 	}
 	
-	bool operator << (const Point3D& rhs)
+	bool operator << (const Point3D& rhs) const
 	{
 		return (x < rhs.x) && (y < rhs.y) && (z < rhs.z);
 	}
 	
-	bool operator >> (const Point3D& rhs)
+	bool operator >> (const Point3D& rhs) const
 	{
 		return (x > rhs.x) && (y > rhs.y) && (z > rhs.z);
 	}
